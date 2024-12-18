@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify login page</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="index.html">
+                <img src="spo-logo.png">
+            </a>
+        </div>
+    </header>
+
+    <section>
+        <div class="main">
+            <h1>Log in to Spotify</h1>
+
+            <div class="account-connect">
+                <button class="a-c-btn" id="g"><img src="google.png"><span>Continue with Google</span></button>
+                <button class="a-c-btn" id="f"><img src="facebook.png"><span>Continue with Facebook</span></button>
+                <button class="a-c-btn" id="a"><img src="apple.png"><span>Continue with Apple</span></button>
+            </div>
+
+            <hr>
+
+            <div class="log-in">
+                <!-- <form action="index.html"> -->
+                    <form >
+                    <label>Email or username</label>
+                    <input type="email" placeholder="Email or username" class="username-js"  id="username" required>
+
+                    <label>Password</label>
+                    <input type="password" placeholder="Password" required class="password-js" id="password">
+
+                    <div class="switch">
+                        <input type="checkbox" id="switch" checked>
+                        <label for="switch"></label>
+                        <span>Remember me</span>
+                    </div>
+
+                    <button id="login-form-submit" onclick="validateForm()">Log In</button>
+
+                    <a href="#">Forgot your password?</a>
+
+                    
+                </form>
+            </div>
+
+            <hr>
+            <div class="last">
+                <span>Don't you have an account?</span>
+                <a href="signin.html">Sign up for Spotify</a>
+            </div>
+        </div>
+    </section>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function(){
+    const form = document.querySelector('form'); // select the form
+    form.addEventListener('submit', function(event) { // add event listener for form submission
+        event.preventDefault(); // prevent default form submission behavior
+
+        const username = form.elements.username.value; // get username value
+        const password = form.elements.password.value; // get password value
+        
+        const authenticated = authenticate(username, password); // authenticate user
+        
+        if (authenticated) {
+            window.location.href = 'index.html'; // redirect to main page if authenticated
+        } else {
+            alert('Invalid username or password. Please try again.'); // show error message if authentication fails
+        }
+    });
+    });
+
+    function authenticate(username, password) {
+    return username === 'radhikagupta2806@gmail.com' && password === 'radhika'; // perform authentication
+    }
+
+</script>
+    
+</body>
+</html> 
+
